@@ -118,20 +118,80 @@ switch ($level) {
     <li>公元年分除以100可整除但除以400不可整除，為平年。</li>
 </ul>
 <?php
-$year=2024;
+$year=2400;
 if($year%4==0){
-    echo "西元";
-    echo $year;
-    echo "是閏年";
+    if($year%100==0){
+        if($year%400==0){
+            echo "西元";
+            echo $year;
+            echo "是閏年";
+        }else{
+            echo "西元";
+            echo $year;
+            echo "是平年";
+        }
+    }else{
+        echo "西元";
+        echo $year;
+        echo "是閏年";
+    }
 }else{
     echo "西元";
     echo $year;
     echo "是平年";
 }
+echo"<hr>";
+echo "<h3>&&,and</h3>";
+if($year%4==0){
+    if ($year %100== 0 && $year %400 != 0) {
+        echo "西元";
+        echo $year;
+        echo "是平年";
+    } else {
+        echo "西元";
+        echo $year;
+        echo "是閏年";
+    }
+}else {
+    echo "西元";
+    echo $year;
+    echo "是平年";
+}
+echo"<hr>";
+echo "<h3>||,or</h3>";
+if ($year%4==0) {
+    if ($year %100 !=0 || $year%400==0) {
+        echo "西元";
+        echo $year;
+        echo "是閏年";
+    } else {
+        echo "西元";
+        echo $year;
+        echo "是平年";
+    }
+    
+} else {
+    echo "西元";
+    echo $year;
+    echo "是平年";
+}
+echo"<hr>";
+echo "<h3>先分潤年出來</h3>";
+
+if ($year%4==0 &&($year%100 !=0 || $year %400 == 0)) {
+    echo "西元";
+    echo $year;
+    echo "是閏年";
+} else {
+    echo "西元";
+    echo $year;
+    echo "是平年";
+}
+echo"<hr>";
 ?>
 <h1>gpt寫</h1>
 <?php
-$year = 2200;
+$year = rand(0,4000);
 
 if ($year % 400 == 0) {
     // 如果能被400整除，是閏年
@@ -147,6 +207,34 @@ if ($year % 400 == 0) {
     echo "西元 $year 是平年";
 }
 ?>
+
+<h1>gpt寫2</h1>
+<?php
+function isLeapYear($year) {
+    if ($year % 4 == 0) {
+        if ($year % 100 == 0) {
+            if ($year % 400 == 0) {
+                return true;  // 閏年
+            } else {
+                return false; // 平年
+            }
+        } else {
+            return true;  // 閏年
+        }
+    } else {
+        return false; // 平年
+    }
+}
+
+// 測試
+$year = 2024;
+if (isLeapYear($year)) {
+    echo "$year 是閏年";
+} else {
+    echo "$year 是平年";
+}
+?>
+
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
