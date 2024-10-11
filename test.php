@@ -14,6 +14,7 @@ for($i=0; $i<5; $i++) {
     echo '</div>';
 }
 ?>
+<h1>test</h1>
 <?php
 echo '<div style="text-align: center;">菱型<br></div>';
 
