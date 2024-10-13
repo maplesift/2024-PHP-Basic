@@ -1,32 +1,59 @@
-<h1>將”aaddw1123”改成”*********”</h1>
-<?php
-$a = "aaddw1123";
-$maskedString = str_repeat('*', strlen($a));
-echo $maskedString;  // 输出: *********
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .rectangle {
+            font-family: monospace; /* 使用等寬字型以保持格式 */
+            line-height: 1; /* 調整行距 */
+        }
+    </style>
+    <title>中空矩形圖案</title>
+</head>
+<body>
+    <h1>矩形</h1>
+    <div class="rectangle">
+        <?php
+        $rows = 10;  // 矩形的行數
+        $cols = 10; // 矩形的列數
+        
+        for ($i = 1; $i <= $rows; $i++) { 
 
+            for ($j = 1; $j <= $cols; $j++) { 
+                // 如果是第一行、最後一行，或第一列、最後一列，就輸出星號
+                if ($i == 1 || $i == $rows || $j == 1 || $j == $cols) {
+                    echo "*"; // 輸出星號
+                } else {
+                    echo "&nbsp;"; // 輸出空格，保持形狀
+                }
+            }
+            
+            echo '<br>'; //內圈跑完換行
+        }
+        echo '<br>';
+        echo '對角線矩形';
+        echo '<br>';
+        $range=17;
+        for($i=1 ; $i<=$range ; $i++){ //設定為9行
 
-echo '<div style="text-align: center;">正三角形<br></div>';
-for($i=0; $i<5; $i++) {
-    echo '<div style="text-align: center;">';
-    for($j=0; $j<(2*$i+1); $j++) {
-        echo "*";
-    }
-    echo '</div>';
-}
-?>
-<h1>test</h1>
-<?php
-echo '<div style="text-align: center;">菱型<br></div>';
-
-$rows = 5; // 設置菱型的行數
-
-for ($i = 0; $i < $rows * 2 - 1; $i++) {
-    // 計算當前行數
-    $currentRow = $i < $rows ? $i : $rows * 2 - 2 - $i;
-    
-    $line = str_repeat("&nbsp;", $rows - 1 - $currentRow); // 輸出前導空格
-    $line .= str_repeat("*", 2 * $currentRow + 1); // 輸出星號
-    
-    echo "<div style='text-align: center;'>$line</div>"; // 顯示行
-}
-?>
+            for( $j=1 ; $j<=$range ; $j++ ){ //設定為9列
+        //如果是第一行 最後一行 第一列 最後一列 對角線:左上到右下：當 j 等於 i 時（例如，(1,1), (2,2)）。    右上到左下：當 j 等於 (9 - i + 1) 時（例如，($i=1,9), (2,8), ..., (9,1)）。 
+              if($i==1 || $i==$range|| $j==1 || $j==$range || $j==$i || $j==($range-$i+1)){
+                
+                echo "*";
+                
+              }else{
+              
+                echo "&nbsp;";
+                
+              }
+            }
+            
+            echo "<br>";
+          }
+        ?>
+        
+    </div>
+</body>
+</html>

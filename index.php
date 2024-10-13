@@ -10,7 +10,7 @@
 
 define("PI","777");
 // define("PI",");
-$price="100";
+$price="hello world";
 echo $price;
 
 echo '<br>';
