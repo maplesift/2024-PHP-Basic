@@ -60,6 +60,28 @@ for($j=0;$j<=9;$j++){
 }
 echo "</table>"
 ?>
+<h2>半邊99</h2>
+<?php
+echo"<table class='nine'>";
+for($j=0;$j<=9;$j++){
+    echo "<tr>";
+    for ($i=0; $i <= 9; $i++) { 
+        echo "<td>";
+        if($j==0){
+            echo $i;
+        }elseif($i==0){
+            echo $j;
+        }else{
+            if($i<=$j){
+                echo  ($j*$i);
+            }
+        }
+        echo "</td>";
+    }
+    echo"<tr>";
+}
+echo "</table>"
+?>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
