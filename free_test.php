@@ -34,7 +34,7 @@
         echo '<br>';
         echo '對角線矩形';
         echo '<br>';
-        $range=17; //需為奇數
+        $range=10; //正方形
         for($i=1 ; $i<=$range ; $i++){ //設定行
 
             for( $j=1 ; $j<=$range ; $j++ ){ //設定列
