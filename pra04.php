@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星星</title>
     <style>
-        body{
+        body{ /* 全局影響 */
             font-family: 'Courier New', Courier, monospace;
+        }
+        .center{ /*只對應到有上標籤的*/
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<h2>正三角形</h2>
+<!-- <h2>正三角形</h2>
 <?php
 
 for($i=0;$i<5;$i++){
@@ -131,6 +134,209 @@ for($i=0;$i<21;$i++){
 
 }
 ?>
+<h2>菱形更新</h2>
+<?php
+echo "<hr>";
+$totalRows = 4; 
+if ($totalRows>=3 && $totalRows%2==0) { //
+    $totalRows++;
+}else{
+    echo "數字太小";
+}
+$midRow = ceil($totalRows / 2); //無條件進位 :此為5 floor()為無條件捨去
+
+for ($i = 1; $i <= $totalRows; $i++) { 
+    if ($i <= $midRow) { 
+        // 上半部邏輯
+        for ($k = 1; $k <= $midRow - $i; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j < 2 * $i; $j++) { 
+            echo "*";
+        }
+    } else { 
+        // 下半部邏輯
+        for ($k = 1; $k <= $i - $midRow; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j <= 2 * ($totalRows - $i) + 1; $j++) { 
+            echo "*";
+        }
+    }
+    echo "<br>";
+}
+?>  -->
+<h2>中空菱形</h2>
+<?php
+echo "<hr>";
+$totalRows = 11; // 必須為奇數以確保對稱性
+$midRow = ceil($totalRows / 2); // 無條件進位，此為6
+
+for ($i = 1; $i <= $totalRows; $i++) { 
+    if ($i <= $midRow) { 
+        // 上半部邏輯
+        for ($k = 1; $k <= $midRow - $i; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j < 2 * $i; $j++) { 
+            if ($j == 1 || $j == 2 * $i - 1) { // 只在兩邊顯示星號
+                echo "*";
+            } else {
+                echo "&nbsp;";
+            }
+        }
+    } else { 
+        // 下半部邏輯
+        for ($k = 1; $k <= $i - $midRow; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j <= 2 * ($totalRows - $i) + 1; $j++) { 
+            if ($j == 1 || $j == 2 * ($totalRows - $i) + 1) { // 只在兩邊顯示星號
+                echo "*";
+            } else {
+                echo "&nbsp;";
+            }
+        }
+    }
+    echo "<br>";
+}
+?>
+
+<h2>菱形對角線</h2>
+<?php
+echo "<hr>";
+$totalRows = 9; // 必須為奇數以確保對稱性
+if ($totalRows>=3 && $totalRows%2==0) {
+    $totalRows++;
+}else{
+    // echo "數字太小";
+    // echo"<br>";
+}
+$midRow = ceil($totalRows / 2); //無條件進位 :此為5 floor()為無條件捨去
+
+for ($i = 1; $i <= $totalRows; $i++) { 
+    if ($i <= $midRow) { 
+        // 上半部邏輯
+        for ($k = 1; $k <= $midRow - $i; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j < 2 * $i; $j++) {
+            if(abs($i-$j)==$midRow ||abs($i+$j)==$midRow || $i==$midRow ||$j==$midRow /*|| $i==$midRow $j+$i== */){
+                
+                echo "*";
+            } 
+        }
+    } else { 
+        // 下半部邏輯
+        for ($k = 1; $k <= $i - $midRow; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j <= 2 * ($totalRows - $i) + 1; $j++) { 
+        }
+    }
+    echo "<br>";
+}
+?> 
+<h2>gpt菱形對角線</h2>
+<?php
+$totalRows = 11; // 必須為奇數以確保對稱性
+$midRow = ceil($totalRows / 2); // 無條件進位，此為6
+
+for ($i = 1; $i <= $totalRows; $i++) { 
+    if ($i <= $midRow) { 
+        // 上半部邏輯
+        for ($k = 1; $k <= $midRow - $i; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j < 2 * $i; $j++) { 
+            if ($j == 1 || $j == 2 * $i - 1 || $i == $midRow) { // 直線和橫線
+                echo "*";
+            } else {
+                echo "&nbsp;";
+            }
+        }
+    } else { 
+        // 下半部邏輯
+        for ($k = 1; $k <= $i - $midRow; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j <= 2 * ($totalRows - $i) + 1; $j++) { 
+            if ($j == 1 || $j == 2 * ($totalRows - $i) + 1 || $i == $midRow) { // 直線和橫線
+                echo "*";
+            } else {
+                echo "&nbsp;";
+            }
+        }
+    }
+    echo "<br>";
+}
+?>
+
+<?php
+echo"<hr>";
+$totalRows = 11; // 必須為奇數以確保對稱性
+$midRow = ceil($totalRows / 2); // 無條件進位，此為6
+
+for ($i = 1; $i <= $totalRows; $i++) { 
+    if ($i <= $midRow) { 
+        // 上半部邏輯
+        for ($k = 1; $k <= $midRow - $i; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j < 2 * $i; $j++) { 
+            if ($j == 1 || $j == 2 * $i - 1 || $i == $midRow ||$j == $i) { // 直線、橫線和對角線
+                echo "*";
+            } else {
+                echo "&nbsp;";
+            }
+        }
+    } else { 
+        // 下半部邏輯
+        for ($k = 1; $k <= $i - $midRow; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j <= 2 * ($totalRows - $i) + 1; $j++) { 
+            if ($j == 1 || $j == 2 * ($totalRows - $i) + 1 || $i == $midRow || $j == ($totalRows - $i + 1)) { // 直線、橫線和對角線
+                echo "*";
+            } else {
+                echo "&nbsp;";
+            }
+        }
+    }
+    echo "<br>";
+}
+?>
+
+
+
+
+<?php
+echo 'gpt菱形' ;
+echo "<br>";
+$totalRows = 11; // 必須為奇數以確保對稱性
+$midRow = ceil($totalRows / 2); //無條件進位 :此為6
+
+for ($i = 1; $i <= $totalRows; $i++) { 
+    if ($i <= $midRow) { 
+        // 上半部邏輯
+        for ($k = 1; $k <= $midRow - $i; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j < 2 * $i; $j++) { 
+            echo "*";
+        }
+    } else { 
+        // 下半部邏輯
+        for ($k = 1; $k <= $i - $midRow; $k++) { 
+            echo "&nbsp;";
+        }
+        for ($j = 1; $j <= 2 * ($totalRows - $i) + 1; $j++) { 
+            echo "*";
+        }
+    }
+    echo "<br>";
+}
+?> 
 <h2>矩形練習</h2>
 <?php
 echo"<hr>";

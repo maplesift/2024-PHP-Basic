@@ -55,5 +55,32 @@
         ?>
         
     </div>
+    <div class="rectangle">
+    <?php
+$totalRows = 11; // 必須為奇數以確保對稱性
+$midRow = ceil($totalRows / 2); // 中間行的索引
+
+for ($i = 1; $i <= $totalRows; $i++) {
+    // 計算當前行相對於中間行的距離
+    $currentRow = $i <= $midRow ? $i : $totalRows - $i + 1;
+
+    // 顯示前導空白
+    for ($k = 1; $k <= $midRow - $currentRow; $k++) { 
+        echo "&nbsp;";
+    }
+    
+    // 顯示星號和空白
+    for ($j = 1; $j <= 2 * $currentRow - 1; $j++) { 
+        if ($j == 1 || $j == 2 * $currentRow - 1) { // 只在兩邊顯示星號
+            echo "*";
+        } else {
+            echo "&nbsp;";
+        }
+    }
+    
+    echo "<br>";
+}
+?>
+</div>
 </body>
 </html>
